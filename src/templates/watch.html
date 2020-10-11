@@ -11,6 +11,7 @@
                 $(".mainVideo").html(`<iframe src=${data} width="1280" height="720"></iframe>`);
             })
         })
+        $(document).append('');
         function get_url(id) {
             return $.ajax({
                 url: "/find_url_by_id/" + id,

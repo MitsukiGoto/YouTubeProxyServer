@@ -4,9 +4,13 @@ class YouTube:
 
     def __init__(self, response:str):
         self.jsonObj = json.loads(response)
-        for item in self.jsonObj["items"]:
+        results = self.jsonObj["items"]
+        for item in results[:]:
             if "channelId" in item["id"]:
-                del self.jsonObj["items"][0]
+                results.remove(item)
+            if "playlistId" in item["id"]:
+                results.remove(item)
+
 
     def get_id_and_thumbnail(self):
         list = []
